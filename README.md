@@ -34,3 +34,8 @@ npm start
 ``` 
 http://localhost:3000
 ```
+
+### RUN TESTS
+```
+npm run test
+```
