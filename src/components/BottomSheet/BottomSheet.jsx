@@ -25,8 +25,9 @@ export default function BottomSheet() {
   });
 
   useEffect(() => {
-    setSpringTarget(snapPoints.CLOSED);
-  }, []);
+  setSpringTarget(snapPoints.CLOSED);
+}, [setSpringTarget, snapPoints.CLOSED]);
+
   
   const handleTouchStart = (e) => {
     setIsDragging(true);
