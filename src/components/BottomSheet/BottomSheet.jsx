@@ -27,7 +27,7 @@ export default function BottomSheet() {
   useEffect(() => {
     setSpringTarget(snapPoints.CLOSED);
   }, []);
-
+  
   const handleTouchStart = (e) => {
     setIsDragging(true);
     startY.current = e.touches ? e.touches[0].clientY : e.clientY;
@@ -66,6 +66,21 @@ export default function BottomSheet() {
     setPosition(snapPoints[point]);
     setSpringTarget(snapPoints[point]);
   };
+  useEffect(() => {
+  const handleKeyDown = (e) => {
+    if (e.key === 'ArrowUp') {
+      goTo('FULL');
+    } else if (e.key === 'ArrowDown') {
+      goTo('HALF');
+    } else if (e.key === 'Escape') {
+      goTo('CLOSED');
+    }
+  };
+
+  window.addEventListener('keydown', handleKeyDown);
+  return () => window.removeEventListener('keydown', handleKeyDown);
+}, []);
+
 
   return (
     <>
